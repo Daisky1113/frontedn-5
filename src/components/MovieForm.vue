@@ -52,7 +52,7 @@
   </v-card>
 </template>
 <script>
-  // import { mapActions } from 'vuex'
+  import { mapActions } from 'vuex'
   export default {
     components: {
       
@@ -60,7 +60,8 @@
     data: () => ({
       movieDetail: {
         name: '',
-        director: ''
+        director: '',
+        rating: ''
       }
     }),
     methods: {
@@ -68,8 +69,14 @@
         this.movieDetail.name = ''
       },
       add(){
+        this.postMovie({
+          name: this.movieDetail.name,
+          director: this.movieDetail.director,
+          rating: this.movieDetail.rating
+        })
         console.log(this.movieDetail)
       },
+      ...mapActions(['postMovie'])
     }
   }
 </script>
