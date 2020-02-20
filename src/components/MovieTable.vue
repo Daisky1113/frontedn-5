@@ -21,7 +21,7 @@
 <script>
   export default {
     props: {
-      movie: Array
+      movies: Array
     },
   }
 </script>

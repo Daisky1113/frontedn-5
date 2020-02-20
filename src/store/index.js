@@ -13,12 +13,16 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    getMovie(){
+    getMovie({ commit }){
       axios.get('http://localhost:3000/movies').then(res =>{
-        console.log(res.data)
+        commit('setMovie', res.data)
       })
     }
   },
+  getters:{
+    movies: state => state.movies
+  },
   modules: {
+
   }
 })

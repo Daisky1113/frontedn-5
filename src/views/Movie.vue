@@ -4,7 +4,7 @@
     <MovieForm/>
   </v-col>
   <v-col cols="9">
-    <MovieTable/>
+    <MovieTable :movies ="movies"/>
   </v-col>
 </v-row>
 </template>
@@ -12,7 +12,7 @@
 import MovieForm from '../components/MovieForm.vue'
 import MovieTable from '../components/MovieTable.vue'
 
-import { mapActions } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 export default{
   name: 'MovieVue',
   components: {
@@ -21,6 +21,9 @@ export default{
   },
   mounted(){
     this.getMovie()
+  },
+  computed:{
+    ...mapGetters(['movies'])
   },
   methods:{
     ...mapActions(['getMovie'])
