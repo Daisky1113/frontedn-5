@@ -11,11 +11,19 @@
 <script>
 import MovieForm from '../components/MovieForm.vue'
 import MovieTable from '../components/MovieTable.vue'
+
+import { mapActions } from 'vuex'
 export default{
   name: 'MovieVue',
   components: {
     MovieForm,
     MovieTable,
+  },
+  mounted(){
+    this.getMovie()
+  },
+  methods:{
+    ...mapActions(['getMovie'])
   }
 }
 </script>
